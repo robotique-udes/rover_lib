@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(rover_shared_libs LANGUAGES CXX)
 
-find_package(rclcpp REQUIRED)
-find_package(rover_msgs REQUIRED)
-
 file(GLOB_RECURSE LIB_HEADERS CONFIGURE_DEPENDS
     rover_can2/src/*.hpp
     rover_lib2/src/*.hpp
@@ -13,14 +10,7 @@ file(GLOB_RECURSE LIB_SOURCES CONFIGURE_DEPENDS
     rover_lib2/src/*.cpp
 )
 
-find_package(rover_msgs REQUIRED)
-find_package(rclcpp REQUIRED)
-
 add_library(rover_shared_libs ${LIB_HEADERS} ${LIB_SOURCES})
-
-ament_target_dependencies(rover_shared_libs
-                          rclcpp
-                          rover_msgs)
 
 target_include_directories(rover_shared_libs PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/rover_can2/src
