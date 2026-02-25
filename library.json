@@ -1,0 +1,14 @@
+{
+  "name": "rover_shared_libs",
+  "version": "1.0.0",
+  "build": {
+    "srcFilter": [
+      "+<rover_lib2/src/>",
+      "+<rover_can2/src/>"
+    ],
+    "includeDir": [
+      "rover_lib2/src",
+      "rover_can2/src"
+    ]
+  }
+}
