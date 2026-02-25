@@ -6,9 +6,9 @@
       "+<rover_lib2/src/>",
       "+<rover_can2/src/>"
     ],
-    "includeDir": [
-      "rover_lib2/src",
-      "rover_can2/src"
+    "flags": [
+      "-Irover_lib2/src",
+      "-Irover_can2/src"
     ]
   }
 }
