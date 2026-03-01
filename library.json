@@ -1,0 +1,28 @@
+{
+  "name": "rover_shared_libs",
+  "version": "2.1.0",
+  "description": "Robotique UdeS's rover team main library",
+  "keywords": "rover, RobotiqueUdeS, UdeS",
+  "authors": [
+    {
+      "name": "Philippe Michaud",
+      "email": "micp1402@usherbrooke.ca",
+      "maintainer": false
+    },
+    {
+      "name": "Émile Savoie",
+      "email": "save1403@usherbrooke.ca",
+      "maintainer": true
+    }
+  ],
+  "build": {
+    "srcFilter": [
+      "+<rover_lib2/src/>",
+      "+<rover_can2/src/>"
+    ],
+    "flags": [
+      "-Irover_lib2/src",
+      "-Irover_can2/src"
+    ]
+  }
+}
