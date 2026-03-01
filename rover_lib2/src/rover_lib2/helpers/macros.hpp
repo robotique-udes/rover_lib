@@ -7,10 +7,6 @@
 #include <type_traits>
 #include <utility>
 
-// #if defined(__linux__) && defined(ROS)
-// #include <ament_index_cpp/get_package_prefix.hpp>
-// #endif  // defined(__linux__) && defined(ROS)
-
 template<typename ENUM_T>
 constexpr std::underlying_type_t<ENUM_T> TO_UNDERLYING(ENUM_T e) noexcept
 {
