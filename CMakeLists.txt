@@ -1,20 +1,25 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.8)
 project(rover_shared_libs LANGUAGES CXX)
 
-file(GLOB_RECURSE LIB_HEADERS CONFIGURE_DEPENDS
-    rover_can2/src/*.hpp
-    rover_lib2/src/*.hpp
-)
+find_package(rclcpp REQUIRED)
+find_package(rover_msgs REQUIRED)
+find_package(ament_cmake REQUIRED)
+
 file(GLOB_RECURSE LIB_SOURCES CONFIGURE_DEPENDS
     rover_can2/src/*.cpp
     rover_lib2/src/*.cpp
 )
 
-add_library(rover_shared_libs ${LIB_HEADERS} ${LIB_SOURCES})
+add_library(rover_shared_libs STATIC ${LIB_SOURCES})
 
 target_include_directories(rover_shared_libs PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/rover_can2/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/rover_lib2/src
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rover_can2/src>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/rover_lib2/src>
+)
+
+ament_target_dependencies(rover_shared_libs PUBLIC
+    rclcpp
+    rover_msgs
 )
 
 target_compile_features(rover_shared_libs PUBLIC cxx_std_23)
