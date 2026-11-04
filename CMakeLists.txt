@@ -4,6 +4,7 @@ project(rover_shared_libs LANGUAGES CXX)
 find_package(rclcpp REQUIRED)
 find_package(rover_msgs REQUIRED)
 find_package(ament_cmake REQUIRED)
+find_package(ament_index_cpp REQUIRED)
 
 file(GLOB_RECURSE LIB_SOURCES CONFIGURE_DEPENDS
     rover_can2/src/*.cpp
@@ -20,6 +21,7 @@ target_include_directories(rover_shared_libs PUBLIC
 ament_target_dependencies(rover_shared_libs PUBLIC
     rclcpp
     rover_msgs
+    ament_index_cpp
 )
 
 target_compile_features(rover_shared_libs PUBLIC cxx_std_23)
