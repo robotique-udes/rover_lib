@@ -41,7 +41,7 @@ jobs:
           script_cmd="python3 $script_path \
             --fix \
             rover_lib2/src/rover_lib2 \
-            rover_can2/src/rover_can2 
+            rover_can2/src/rover_can2"
 
           eval $script_cmd || true
 
