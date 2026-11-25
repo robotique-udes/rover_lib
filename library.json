@@ -12,7 +12,7 @@
     {
       "name": "Émile Savoie",
       "email": "save1403@usherbrooke.ca",
-      "maintainer": true
+      "maintainer": false
     }
   ],
   "build": {
